@@ -8,6 +8,9 @@ import gameProgress.*;
 
 public class Main {
 
+    private static String slash = File.separator;
+    private static String gamesSave = "Games" + slash + "savegames" + slash;
+
     private static void openZip(String pathFile, String pathFolder) {
         try(ZipInputStream zin = new ZipInputStream(new FileInputStream(pathFile))) {
             ZipEntry zipEntry;
@@ -49,10 +52,10 @@ public class Main {
 
     }
     public static void main(String[] args) {
-        openZip("Games/savegames/zip.zip", "Games/savegames/");
-        System.out.println(openProgress("Games/savegames/save1.dat"));
-        System.out.println(openProgress("Games/savegames/save2.dat"));
-        System.out.println(openProgress("Games/savegames/save3.dat"));
+        openZip(gamesSave + "zip.zip", gamesSave + slash);
+        System.out.println(openProgress(gamesSave + "save1.dat"));
+        System.out.println(openProgress(gamesSave + "save2.dat"));
+        System.out.println(openProgress(gamesSave + "save3.dat"));
 
     }
 }
